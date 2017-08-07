@@ -167,6 +167,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+	Overtrue\LaravelWechat\ServiceProvider::class,
+
 
         /*
          * Application Service Providers...
