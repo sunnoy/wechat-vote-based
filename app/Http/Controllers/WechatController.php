@@ -17,7 +17,7 @@ class WechatController extends Controller
 
         $wechat = app('wechat');
         $wechat->server->setMessageHandler(function($message){
-            return "欢迎关注 overtrue！";
+            return "欢迎关注德阳水质监测站投票平台！";
         });
 
        // Log::info('return response.');
