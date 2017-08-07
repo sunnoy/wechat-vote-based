@@ -35,7 +35,7 @@ class WechatController extends Controller
             return '你好' . $message->FromUserName;
             break;
         case 'image':
-            Storage::put($message->FromUserName, $message->PicUrl);
+            Storage::put($message->FromUserName.".jpg", $message->PicUrl);
             return "这是个图片" . $message->PicUrl;
             break;
         case 'voice':
