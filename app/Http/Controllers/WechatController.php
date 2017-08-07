@@ -32,7 +32,7 @@ class WechatController extends Controller
             return '你好' . $message->FromUserName;
             break;
         case 'image':
-            return "这是个图片";
+            return "这是个图片" . $message->PicUrl;
             break;
         case 'voice':
             return '收到语音消息';
