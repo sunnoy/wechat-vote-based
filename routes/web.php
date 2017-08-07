@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 Route::any('/wechat', 'WechatController@serve')->name('wechat');
 
-Route::any('/wechat/png', 'PngController@save')->name('pngsave');
+Route::any('/png', 'PngController@save')->name('pngsave');
