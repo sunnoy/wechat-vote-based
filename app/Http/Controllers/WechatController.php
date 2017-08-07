@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class WechatController extends Controller
 {
+
     /**
      * 处理微信的请求消息
      *
@@ -17,17 +18,12 @@ class WechatController extends Controller
         $wechat = app('wechat');
         $wechat->server->setMessageHandler(function($message){
             
-            switch ($message->MsgType) {
+          switch ($message->MsgType) {
         case 'event':
             return '收到事件消息';
             break;
         case 'text':
-            if $message->Content == "你好"
-         ｛
-                     return '你也好';
-
-            ｝
-            
+            return '收到文字消息';
             break;
         case 'image':
             return '收到图片消息';
@@ -49,10 +45,11 @@ class WechatController extends Controller
             return '收到其它消息';
             break;
     }
-    
-        });
+
+      });
 
 
         return $wechat->server->serve();
     }
 }
+
