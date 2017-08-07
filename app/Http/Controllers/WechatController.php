@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use EasyWeChat\Message\Image;
+
 
 class WechatController extends Controller
 {
@@ -30,7 +32,7 @@ class WechatController extends Controller
             return '你好' . $message->FromUserName;
             break;
         case 'image':
-            return Redirect::route('pngsave');
+            return "这是个图片" . $text = new Image(['media_id' => $mediaId]);
             break;
         case 'voice':
             return '收到语音消息';
