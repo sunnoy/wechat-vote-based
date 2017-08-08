@@ -9,9 +9,9 @@ class StorgeConttroller extends Controller
 {
     public function SaveFile()
     {
-        $file = Storage::disk('vote')->put("te.txt", "hah");
+        $file = Storage::disk('vote')->put("h.jpg", "dong");
         if ($file) {
-            echo "ok";
+            return "Congratulations ! image saved success ! ";
         }
     }
 }
