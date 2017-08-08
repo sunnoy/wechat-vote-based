@@ -92,7 +92,7 @@ class WechatController extends Controller
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 300);
 
         $file = curl_exec($ch);
 
