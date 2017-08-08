@@ -9,6 +9,9 @@ class StorgeConttroller extends Controller
 {
     public function SaveFile()
     {
-        //Storado ng ge::
+        $file = Storage::disk('vote')->put("te.txt", "hah");
+        if ($file) {
+            echo "ok";
+        }
     }
 }
