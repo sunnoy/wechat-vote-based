@@ -25,7 +25,7 @@ class WechatController extends Controller
                 case 'event':
                     switch ($message->Event) {
                         case 'subscribe':
-                            return "HI".$user->get($message->FromUserName)->nickname."欢迎关注德阳监测站投票平台";
+                            return "HI" . $user->get($message->FromUserName)->nickname . "欢迎关注德阳监测站投票平台";
                             break;
 
                         default:
@@ -50,7 +50,7 @@ class WechatController extends Controller
                     return "这是个图片" . $message->PicUrl;
                     break;
                 case 'voice':
-                    return '收到语音消息';
+                    return "HI" . $user->get($message->FromUserName)->nickname . "欢迎关注德阳监测站投票平台";
                     break;
                 case 'video':
                     return '收到视频消息';
