@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use EasyWeChat\Message\Text;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class WechatController extends Controller
