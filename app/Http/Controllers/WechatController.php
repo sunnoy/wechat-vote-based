@@ -42,9 +42,9 @@ class WechatController extends Controller
                     break;
                 case 'text':
                     if ($message->Content == "hao") {
-                        return '收到文字消息' . $userApi->get($message->FromUserName);
+                        return '收到文字消息' ;
                     }
-                    return 'no hao' . $userApi->get($message->FromUserName);
+                    return 'no hao';
                     break;
                 case 'image':
                     $image1 = new Image(['media_id' => 'kl4iaDLUZoIgMD0YmGXxetX1p4-TptdNdLNojdcl6aE']);
