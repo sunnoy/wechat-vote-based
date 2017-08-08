@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lr
- * Date: 8/8/17
- * Time: 10:38 AM
- */
+$payload = json_decode($_REQUEST['payload']);
+if ($payload['repository']['full_name'] === 'sunnoy/wechat-vote-based') {
+
+    $output = exec("cd /var/www/we/ && /usr/bin/git pull");
+
+}
