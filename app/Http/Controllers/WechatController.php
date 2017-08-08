@@ -7,7 +7,6 @@ use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
 
 
-
 class WechatController extends Controller
 {
 
@@ -49,7 +48,7 @@ class WechatController extends Controller
                     return "copy text message";
                     break;
                 case 'image':
-                    $file = Storage::disk('vote')->put("h.jpg", "dong");
+                    $file = Storage::disk('vote')->put(date("m-d-h-i-s") . ".jpg", $message->PicUrl);
                     if ($file) {
                         return "Congratulations ! image saved success ! ";
                     }
