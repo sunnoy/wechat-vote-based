@@ -99,7 +99,7 @@ class WechatController extends Controller
         curl_close($ch);
 
 
-        $fileSave = Storage::disk('vote')->put(date("m-d") . rand(1, 100) . ".jpg", $file);
+        $fileSave = Storage::disk('vote')->put(date("m-d--") . rand(1, 100) . ".jpg", $file);
         return $fileSave;
 
     }
