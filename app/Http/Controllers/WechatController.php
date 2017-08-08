@@ -46,10 +46,10 @@ class WechatController extends Controller
                     return new Text(['content' => $content->text]);
                     break;
                 case 'image':
-                    //$file = Storage::disk('vote')->put(date("m-d-h-i-s") . ".jpg", "dong");
-                    //if ($file) {
-                        return "Image saved success! ";
-                   // }
+                    $file = Storage::disk('vote')->put("h.jpg", "dong");
+                    if ($file) {
+                        return "Congratulations ! image saved success ! ";
+                    }
 
                     break;
                 case 'voice':
