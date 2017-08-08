@@ -50,7 +50,8 @@ class WechatController extends Controller
                     return "这是个图片" . $message->PicUrl;
                     break;
                 case 'voice':
-                    return "HI" . $user->get($message->FromUserName)->nickname . "欢迎关注德阳监测站投票平台";
+                    $userr = $user->get($message->FromUserName);
+                    return "HI" . $userr->nickname . "欢迎关注德阳监测站投票平台";
                     break;
                 case 'video':
                     return '收到视频消息';
