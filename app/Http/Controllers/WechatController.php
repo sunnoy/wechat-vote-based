@@ -61,7 +61,7 @@ class WechatController extends Controller
 
                     break;
                 case 'voice':
-                    return "HI" . "dong" . "欢迎关注德阳监测站投票平台";
+                    return "copy voice message!";
                     break;
                 case 'video':
                     return '收到视频消息';
