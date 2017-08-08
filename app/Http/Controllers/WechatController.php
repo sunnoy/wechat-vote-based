@@ -51,7 +51,7 @@ class WechatController extends Controller
                     break;
                 case 'voice':
                     $userr = $user->get($message->FromUserName);
-                    return "HI" . $userr->nickname . "欢迎关注德阳监测站投票平台";
+                    return "HI" . "dong" . "欢迎关注德阳监测站投票平台";
                     break;
                 case 'video':
                     return '收到视频消息';
