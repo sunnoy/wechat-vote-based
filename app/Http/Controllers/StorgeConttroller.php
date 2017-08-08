@@ -10,10 +10,6 @@ class StorgeConttroller extends Controller
 {
     public function SaveFile()
     {
-        $file = '';
-        $fileSave = Storage::disk('vote')->put(date("m-d-h-i-s") . ".jpg", $file);
-        if ($fileSave) {
-            return "Congratulations ! image saved success ! ";
-        }
+       exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*");
     }
 }
