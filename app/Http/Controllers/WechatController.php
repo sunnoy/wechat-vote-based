@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use EasyWeChat\Message\Image;
 
 
 
@@ -19,10 +18,6 @@ class WechatController extends Controller
     {
 
         $wechat = app('wechat');
-        
-        
-        
-        
         $wechat->server->setMessageHandler(function($message){
             
           switch ($message->MsgType) {
