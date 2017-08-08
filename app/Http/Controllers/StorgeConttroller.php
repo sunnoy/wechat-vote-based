@@ -9,6 +9,6 @@ class StorgeConttroller extends Controller
 {
     public function SaveFile()
     {
-        //Storadong ge::
+        //Storado ng ge::
     }
 }
