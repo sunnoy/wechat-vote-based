@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use EasyWeChat\Message\Image;
+use EasyWeChat\Foundation\Application;
+
 use Illuminate\Http\Request;
 
 class WechatController extends Controller
@@ -40,9 +42,9 @@ class WechatController extends Controller
                     break;
                 case 'text':
                     if ($message->Content == "hao") {
-                        return '收到文字消息' . $userApi->get($message->FromUserName)->nickname;
+                        return '收到文字消息' . $userApi->get($message->FromUserName);
                     }
-                    return 'no hao' . $userApi->get($message->FromUserName)->nickname;
+                    return 'no hao' . $userApi->get($message->FromUserName);
                     break;
                 case 'image':
                     $image1 = new Image(['media_id' => 'kl4iaDLUZoIgMD0YmGXxetX1p4-TptdNdLNojdcl6aE']);
