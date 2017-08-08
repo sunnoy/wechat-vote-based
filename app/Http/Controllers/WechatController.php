@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
+
 date_default_timezone_set("Asia/Shanghai");
 
 
@@ -49,9 +50,12 @@ class WechatController extends Controller
                     return "copy text message";
                     break;
                 case 'image':
-                    $file = Storage::disk('vote')->put(date("m-d-h-i-s") . ".jpg", $message->PicUrl);
+                    $url = $message->PicUrl;
+                    $file = $this->saveImage($url);
                     if ($file) {
                         return "Congratulations ! image saved success ! ";
+                    } else {
+                        return "Whoops ! looks like something went wrong";
                     }
 
                     break;
@@ -77,6 +81,26 @@ class WechatController extends Controller
 
 
         return $wechat->server->serve();
+    }
+
+    public function saveImage($url)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+
+        $file = curl_exec($ch);
+
+        curl_close($ch);
+
+
+        $fileSave = Storage::disk('vote')->put(date("m-d-h-i-s") . ".jpg", $file);
+        return $fileSave;
+
     }
 }
 
