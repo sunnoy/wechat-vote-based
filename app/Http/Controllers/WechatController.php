@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use EasyWeChat\Message\Image;
-use EasyWeChat\Foundation\Application;
-
 use Illuminate\Http\Request;
+use EasyWeChat\Message\Text;
+
 
 class WechatController extends Controller
 {
+
     /**
      * 处理微信的请求消息
      *
@@ -16,43 +16,40 @@ class WechatController extends Controller
      */
     public function serve()
     {
+
         $wechat = app('wechat');
-        $userApi = $wechat->user;
-        $wechat->server->setMessageHandler(function ($message) use ($userApi, $wechat) {
+        $wechat->server->setMessageHandler(function ($message) {
+
             switch ($message->MsgType) {
                 case 'event':
-                    //event switch
                     switch ($message->Event) {
                         case 'subscribe':
-                            return "welcome kan kan wo men .";
+                            return "HI!欢迎关注德阳监测站投票平台";
                             break;
-                        case 'CLICK':
-                            if ($message->EventKey == "V1001_GOOD") {
-                                return "jin ri ge qu ";
-                            }
-                            if ($message->EventKey == "V1002_GOOD") {
-                                return "zan yi xia";
-                            }
-                            break;
+
                         default:
-                            # code...
+                            // code...
                             break;
                     }
-                    //return '收到事件消息';
                     break;
+
                 case 'text':
-                    if ($message->Content == "hao") {
-                        return '收到文字消息' ;
-                    }
-                    return 'no hao';
+                    $content = $message->Content;
+                    //发送到图灵机器人接口
+
+                    $url = "http://www.tuling123.com/openapi/api?key=f7b6e44c70ea46f3972d95e7bd044789&info=" . $content;
+                    //获取图灵机器人返回的内容
+                    $content = file_get_contents($url);
+                    //对内容json解码
+                    $content = json_decode($content);
+                    //把内容发给用户
+                    return new Text(['content' => $content->text]);
                     break;
                 case 'image':
-                    $image1 = new Image(['media_id' => 'kl4iaDLUZoIgMD0YmGXxetX1p4-TptdNdLNojdcl6aE']);
-                    $wechat->staff->message($image1)->to($message->FromUserName)->send();
-                    return '收到图片消息';
+                    return "这是个图片" . $message->PicUrl;
                     break;
                 case 'voice':
-                    return '收到语音消息';
+                    return "HI" . "dong" . "欢迎关注德阳监测站投票平台";
                     break;
                 case 'video':
                     return '收到视频消息';
@@ -68,8 +65,11 @@ class WechatController extends Controller
                     return '收到其它消息';
                     break;
             }
+
         });
-        //Log::info('return response.');
+
+
         return $wechat->server->serve();
     }
 }
+
