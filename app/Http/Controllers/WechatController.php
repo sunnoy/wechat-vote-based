@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use EasyWeChat\Message\Image;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\File;
 
 
 
@@ -35,7 +33,6 @@ class WechatController extends Controller
             return '你好' . $message->FromUserName;
             break;
         case 'image':
-            Storage::put($message->FromUserName, $message->PicUrl);
             return "这是个图片" . $message->PicUrl;
             break;
         case 'voice':
