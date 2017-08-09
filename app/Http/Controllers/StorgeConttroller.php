@@ -11,6 +11,7 @@ class StorgeConttroller extends Controller
     public function SaveFile()
     {
 
+        //service cron reload
         exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*");
     }
 

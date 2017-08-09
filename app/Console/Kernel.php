@@ -4,7 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Redirect;
 
 class Kernel extends ConsoleKernel
 {
@@ -29,6 +28,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         //schedule to send email
         $schedule->call(function () {
+
+
 
 
         })->everyMinute();
