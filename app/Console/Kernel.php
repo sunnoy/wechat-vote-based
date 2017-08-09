@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
         //schedule to send email
         $schedule->call(function () {
 
-            return Redirect::route('sendEmail');
+            exec("echo 'jsj'");
 
         })->everyMinute();
     }
