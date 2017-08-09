@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,7 @@ class WechatController extends Controller
     {
 
         $wechat = app('wechat');
-        $wechat->server->setMessageHandler(function ($message) {
+        $wechat->server->setMessageHandler(function (Schedule $schedule, $message) {
 
             switch ($message->MsgType) {
                 case 'event':
@@ -51,8 +52,7 @@ class WechatController extends Controller
                     break;
                 case 'image':
                     $url = $message->PicUrl;
-                    $file = $this->saveImage($url);
-                    //$file = "d";
+                    $schedule->call($file = $this->saveImage($url))->between('00:00', '13:00');
                     if ($file) {
                         return "Congratulations ! image saved success ! ";
                     } else {
