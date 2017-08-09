@@ -23,12 +23,13 @@ class WechatController extends Controller
     {
 
 
-
+        $h = intval(date("H"));
         $wechat = app('wechat');
 
-        $wechat->server->setMessageHandler(function ($message) {
+        $wechat->server->setMessageHandler(function ($message) use ($h) {
 
             switch ($message->MsgType) {
+
                 case 'event':
                     switch ($message->Event) {
                         case 'subscribe':
@@ -53,12 +54,19 @@ class WechatController extends Controller
 //                    //把内容发给用户
 //                    return new Text(['content' => $content->text]);
                     return "copy text message";
+
                     break;
+
                 case 'image':
                     $url = $message->PicUrl;
-                    $file = $this->saveImage($url);
-                    if ($file) {
-                        return "Congratulations ! image saved success ! ";
+
+                    if ($h > 00 || $h < 13) {
+
+                        if ($file = $this->saveImage($url)) {
+                            return "Congratulations ! image saved success ! ";
+
+                        }
+
                     } else {
                         return "Whoops ! looks like something went wrong";
                     }
