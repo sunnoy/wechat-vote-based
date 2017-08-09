@@ -62,12 +62,18 @@ class WechatController extends Controller
 
                     if ($h > 00 || $h < 13) {
 
-                        if ($file = $this->saveImage($url)) {
+                        $file = $this->saveImage($url);
+
+                        if ($file) {
                             return "Congratulations ! image saved success ! ";
+
+                        } else {
+                            return "Whoops ! something went wrong";
 
                         }
 
                     } else {
+
                         return "Whoops ! looks like something went wrong";
                     }
 
