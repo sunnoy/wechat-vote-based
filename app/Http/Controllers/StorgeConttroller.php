@@ -15,26 +15,11 @@ class StorgeConttroller extends Controller
 
     public function sendEmail()
     {
-        //popSTMP:phdedpoymmtigdea
-        //IMAPSTMP:rujnmulrolrbhiee
+
         Mail::to('1476281924@qq.com')->send(new voteSendEmail());
 
 
     }
 
-    public function showTime()
-    {
-        date_default_timezone_set("Asia/Shanghai");
-        if (date('H') >= 00 && date('H') <= 13) {
 
-
-            echo "Whoops ! something went wrong";
-
-
-        } else {
-
-            echo "Whoops ! looks like something went wrong";
-        }
-
-    }
 }
