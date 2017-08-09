@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Http\Request;
 use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,7 +23,7 @@ class WechatController extends Controller
 
         $wechat = app('wechat');
 
-        $wechat->server->setMessageHandler(function ($message) use ($h) {
+        $wechat->server->setMessageHandler(function ($message) {
 
             switch ($message->MsgType) {
 
