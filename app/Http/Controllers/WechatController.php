@@ -49,6 +49,8 @@ class WechatController extends Controller
                     //对内容json解码
                     $content = json_decode($content);
                     //把内容发给用户
+                    $text = new Text();
+                    $text->content = '您好！overtrue。';
                     return new Text(['content' => $content->text]);
                     //return "copy text message";
 
