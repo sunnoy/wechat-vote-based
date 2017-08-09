@@ -1,7 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: lr
- * Date: 8/8/17
- * Time: 10:40 PM
- */
+<body>
+<div align="center">
+    <h1>水质监测站投票</h1>
+
+    <img src="{{ $message->embed(@storage_path('app/vote.png')) }}">
+</div>
+
+</body>

@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 Route::any('/wechat', 'WechatController@serve')->name('wechat');
 Route::get('/f','StorgeConttroller@SaveFile');
+Route::get('/s','StorgeConttroller@sendEmail')->name('sendEmail');
 

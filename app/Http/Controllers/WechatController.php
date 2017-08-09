@@ -61,6 +61,7 @@ class WechatController extends Controller
 
                     break;
                 case 'voice':
+
                     return "copy voice message!";
                     break;
                 case 'video':
