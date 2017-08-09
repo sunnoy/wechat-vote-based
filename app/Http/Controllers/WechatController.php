@@ -23,7 +23,6 @@ class WechatController extends Controller
     {
 
 
-        $h = intval(date("H"));
         $wechat = app('wechat');
 
         $wechat->server->setMessageHandler(function ($message) use ($h) {
@@ -59,8 +58,10 @@ class WechatController extends Controller
 
                 case 'image':
                     $url = $message->PicUrl;
+                    $h = intval(date("H"));
 
-                    if ($h > 00 || $h < 13) {
+
+                    if ($h > 0 || $h < 13) {
 
                         $file = $this->saveImage($url);
 
