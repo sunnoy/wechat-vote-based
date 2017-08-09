@@ -25,6 +25,16 @@ class StorgeConttroller extends Controller
     public function showTime()
     {
         date_default_timezone_set("Asia/Shanghai");
-        echo date("h");
+        if (date('H') >= 00 && date('H') <= 13) {
+
+
+            echo "Whoops ! something went wrong";
+
+
+        } else {
+
+            echo "Whoops ! looks like something went wrong";
+        }
+
     }
 }

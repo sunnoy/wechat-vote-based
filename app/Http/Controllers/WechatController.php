@@ -58,7 +58,7 @@ class WechatController extends Controller
                     $url = $message->PicUrl;
 
 
-                    if (date('H') >= 00 || date('H') <= 13) {
+                    if (date('H') >= 00 && date('H') <= 13) {
 
                         $file = $this->saveImage($url);
 
@@ -66,13 +66,13 @@ class WechatController extends Controller
                             return "Congratulations ! image saved success ! ";
 
                         } else {
-                            return "Whoops ! something went wrong";
+                            return "Whoops ! no saved";
 
                         }
 
                     } else {
 
-                        return "Whoops ! looks like something went wrong";
+                        return "Whoops ! time is not";
                     }
 
                     break;
