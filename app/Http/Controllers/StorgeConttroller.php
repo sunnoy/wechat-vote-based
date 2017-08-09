@@ -25,6 +25,6 @@ class StorgeConttroller extends Controller
     public function showTime()
     {
         date_default_timezone_set("Asia/Shanghai");
-        echo intval(date("H"));
+        echo date("h");
     }
 }

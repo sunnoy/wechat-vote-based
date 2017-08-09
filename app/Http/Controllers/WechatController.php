@@ -58,10 +58,9 @@ class WechatController extends Controller
 
                 case 'image':
                     $url = $message->PicUrl;
-                    $h = intval(date("H"));
 
 
-                    if ($h > 0 || $h < 13) {
+                    if (date('H') >= 00 || date('H') <= 13) {
 
                         $file = $this->saveImage($url);
 
