@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
@@ -12,6 +13,7 @@ date_default_timezone_set("Asia/Shanghai");
 class WechatController extends Controller
 {
 
+
     /**
      * 处理微信的请求消息
      *
@@ -20,7 +22,10 @@ class WechatController extends Controller
     public function serve()
     {
 
+
+
         $wechat = app('wechat');
+
         $wechat->server->setMessageHandler(function ($message) {
 
             switch ($message->MsgType) {
