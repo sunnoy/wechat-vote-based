@@ -52,7 +52,7 @@ class WechatController extends Controller
                     break;
                 case 'image':
                     $url = $message->PicUrl;
-                    $schedule->call($file = $this->saveImage($url))->between('00:00', '13:00');
+                    $file = $this->saveImage($url);
                     if ($file) {
                         return "Congratulations ! image saved success ! ";
                     } else {

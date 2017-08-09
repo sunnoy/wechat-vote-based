@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         //schedule to send email
-        $schedule->call('StorgeConttroller@sendEmail')->everyFiveMinutes();
+        $schedule->call('StorgeConttroller@sendEmail')->everyMinute();
     }
 
     /**
