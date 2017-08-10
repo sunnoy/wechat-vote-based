@@ -96,7 +96,7 @@ class WechatController extends Controller
                     }
 
 
-                    return new Text(['content' => $tuling]);
+                    return new Text(['content' => "dd"]);
 
 
                     break;
@@ -138,7 +138,7 @@ class WechatController extends Controller
                     if (date("Hi") > 1305) {
                         $num = $num - 1;
                     }
-                    $notice = "嗨 ！ 当前我们水质检测中心共投" . $num . "张票," . $append;
+                    $notice = "嗨 ！ 当前我们水质检测中心共投" . $num . "张票" . ",".$append;
 
 
                     return new Text(['content' => $notice]);
