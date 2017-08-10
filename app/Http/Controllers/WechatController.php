@@ -40,7 +40,9 @@ class WechatController extends Controller
 1.请不要发送非投票截图！！！\n
 2.请不要发送非投票截图！！！\n
 3.请不要发送非投票截图！！！\n
-直接回复文字即可与图灵机器人聊天喔～～";
+Tips:
+1.直接回复文字即可与图灵机器人聊天喔～～(一定程度上可以替代度娘，帮您解疑答惑)
+2.回复任意长度语音获取当天实时投票总数";
                             break;
 
                         default:
@@ -138,7 +140,7 @@ class WechatController extends Controller
                     if (date("Hi") > 1305) {
                         $num = $num - 1;
                     }
-                    $notice = "嗨 ！ 当前我们水质检测中心共投" . $num . "张票" . ",".$append;
+                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . ",".$append;
 
 
                     return new Text(['content' => $notice]);
