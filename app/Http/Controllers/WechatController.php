@@ -49,7 +49,8 @@ class WechatController extends Controller
                     //把内容发给用户
 
 
-                    return new Text(['content' => [$content->text, $content->list]]);
+
+                    return new Text(['content' => $content->text]);
                     //return "copy text message";
 
                     break;
@@ -78,11 +79,12 @@ class WechatController extends Controller
 
                     break;
                 case 'voice':
-                    $a1 = new Text("huanying1");
-                    //$a2 = new Text("huanying2");
-                    //$a3 = new Text("huanying3");
+                    $text1 = new Text(['content' => '您好！overtrue。']);
+                    $text2 = new Text(['content' => '您好！overtrue。']);
+                    $text3 = new Text(['content' => '您好！overtrue。']);
 
-                    return [$a1];
+
+                    return [$text1,$text2,$text3];
                     break;
                 case 'video':
                     return '收到视频消息';
