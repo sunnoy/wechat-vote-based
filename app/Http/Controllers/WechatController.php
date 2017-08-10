@@ -71,8 +71,32 @@ class WechatController extends Controller
 
                     $content = json_decode($content);
 
+                    $text = $content->text;
+                    if (!empty($content->url)) {
 
-                    return new Text(['content' => $content->text]);
+                        $urll = $content->url;
+                    };
+
+                    if (!empty($content->list)) {
+                        $list = $content->list;
+                    }
+                    $tuling = '';
+                    if (!empty($urll)) {
+
+                        $tuling = $text . $urll;
+
+                    } elseif (!empty($list)) {
+
+                        $tuling = $text . $list;
+
+                    } elseif (!empty($urll) && !empty($list)) {
+
+                        $tuling = $text . $urll . $list;
+
+                    }
+
+
+                    return new Text(['content' => $tuling]);
 
 
                     break;
@@ -114,7 +138,7 @@ class WechatController extends Controller
                     if (date("Hi") > 1305) {
                         $num = $num - 1;
                     }
-                    $notice = "嗨 ！ 今天我们水质检测中心一共投" . $num . "张票," . $append;
+                    $notice = "嗨 ！ 当前我们水质检测中心共投" . $num . "张票," . $append;
 
 
                     return new Text(['content' => $notice]);
