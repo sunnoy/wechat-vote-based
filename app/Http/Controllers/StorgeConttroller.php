@@ -32,7 +32,19 @@ class StorgeConttroller extends Controller
 
     public function test(){
         $fileNum = Storage::disk('vote')->files();
-        return count($fileNum);
+        $num = 190;
+        $append = '';
+        if ($num >= 10 && $num <= 100) {
+            $append = "没有投票的要抓紧喔";
+        } elseif ($num > 180) {
+            $append = "好给力！";
+        }
+
+        if (date("Hi") > 1305) {
+            $num = $num - 1;
+        }
+        echo $notice = "嗨 ！ 今天我们水质检测中心一共投" . $num . "张票," . $append;
+
     }
 
 

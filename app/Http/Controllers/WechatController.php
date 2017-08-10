@@ -102,8 +102,24 @@ class WechatController extends Controller
                     break;
                 case 'voice':
 
+                    $fileNum = Storage::disk('vote')->files();
+                    $num = count($fileNum);
+                    $append = '';
+                    if ($num >= 10 && $num <= 100) {
+                        $append = "没有投票的要抓紧喔";
+                    } elseif ($num > 180) {
+                        $append = "好给力！";
+                    }
 
-                    return "收到语音消息";
+                    if (date("Hi") > 1305) {
+                        $num = $num - 1;
+                    }
+                    $notice = "嗨 ！ 今天我们水质检测中心一共投" . $num . "张票," . $append;
+
+
+                    return new Text(['content' => $notice]);
+
+                    //return "收到语音消息";
                     break;
                 case 'video':
                     return '收到视频消息';
