@@ -49,10 +49,10 @@ class WechatController extends Controller
                     //对内容json解码
                     $content = json_decode($content);
                     //把内容发给用户
-                    $text = new Text();
 
-                    $text->content = $content->text . $content->url . $content->list;
-                    return $text->content;
+
+                    $dong = $content->text . $content->url . $content->list;
+                    return new Text(['content' => $dong]);
                     //return "copy text message";
 
                     break;
