@@ -51,8 +51,8 @@ class WechatController extends Controller
                     //把内容发给用户
 
 
-                    //return new Text(['content' => $content->text]);
-                    return "copy text message";
+                    return new Text(['content' => $content->text]);
+                    //return "copy text message";
 
                     break;
 
