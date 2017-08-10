@@ -6,6 +6,7 @@ use EasyWeChat\Message\Text;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
+
 use Illuminate\Support\Facades\Storage;
 
 
@@ -66,15 +67,9 @@ class WechatController extends Controller
                     $text = new Text(['content' => $content->text]);
                     $list = new Text(['content' => $content->list]);
 
-                    if (!empty($urll)) {
 
-                        return $text . $urll;
-
-                    } elseif (!empty($list)) {
-                        return $text . $list;
-                    } else {
                         return $text;
-                    }
+
 
 
                     break;
