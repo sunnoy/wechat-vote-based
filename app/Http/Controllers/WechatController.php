@@ -84,7 +84,7 @@ class WechatController extends Controller
                     $text3 = new Text(['content' => '您好！overtrue。']);
 
 
-                    return [$text1,$text2,$text3];
+                    return $text1;
                     break;
                 case 'video':
                     return '收到视频消息';
