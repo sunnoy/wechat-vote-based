@@ -131,16 +131,20 @@ Tips:
                     $fileNum = Storage::disk('vote')->files();
                     $num = count($fileNum);
                     $append = '';
-                    if ($num >= 10 && $num <= 100) {
-                        $append = "没有投票的要抓紧喔";
-                    } elseif ($num > 180) {
-                        $append = "好给力！";
+                    if ($num >= 1 && $num <= 100) {
+                        $append = ",没有投票的要抓紧喔";
+                    } elseif ($num>100 && $num<130){
+                        $append = ",大家继续加油喔～";
+
+                    }
+                    elseif ($num >= 130) {
+                        $append = ",好给力！";
                     }
 
                     if (date("Hi") > 1305) {
                         $num = $num - 1;
                     }
-                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . ",".$append;
+                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" .$append;
 
 
                     return new Text(['content' => $notice]);
