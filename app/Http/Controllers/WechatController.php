@@ -63,13 +63,8 @@ class WechatController extends Controller
 
                     $content = json_decode($content);
 
-                    $urll = new Text(['content' => $content->url]);
-                    $text = new Text(['content' => $content->text]);
-                    $list = new Text(['content' => $content->list]);
 
-
-                        return $text;
-
+                    return new Text(['content' => $content->text]);
 
 
                     break;
@@ -98,12 +93,9 @@ class WechatController extends Controller
 
                     break;
                 case 'voice':
-                    $text1 = new Text(['content' => '']);
-
-                    $text3 = new Text(['content' => '您好！overtrue。']);
 
 
-                    return $text1 . $text3;
+                    return "收到语音消息";
                     break;
                 case 'video':
                     return '收到视频消息';
