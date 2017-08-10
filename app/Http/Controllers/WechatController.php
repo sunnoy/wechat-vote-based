@@ -39,7 +39,8 @@ class WechatController extends Controller
 重要：
 1.请不要发送非投票截图！！！\n
 2.请不要发送非投票截图！！！\n
-3.请不要发送非投票截图！！！\n";
+3.请不要发送非投票截图！！！\n
+直接回复文字即可与图灵机器人聊天喔～～";
                             break;
 
                         default:
