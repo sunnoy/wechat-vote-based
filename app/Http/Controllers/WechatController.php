@@ -132,9 +132,9 @@ Tips:
                     $num = count($fileNum);
                     $append = '';
                     if ($num >= 1 && $num <= 100) {
-                        $append = ",没有投票的要抓紧喔";
+                        $append = ",没有投票的要抓紧喔,";
                     } elseif ($num>100 && $num<130){
-                        $append = ",大家继续加油喔～";
+                        $append = ",大家继续加油喔～,";
 
                     }
                     elseif ($num >= 130) {
