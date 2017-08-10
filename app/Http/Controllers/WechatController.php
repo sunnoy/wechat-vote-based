@@ -95,7 +95,7 @@ class WechatController extends Controller
                         }
 
                     } else {
-
+//
                         return "Whoops ! 请在每天的00:00到13:00发送截图哈";
                     }
 
