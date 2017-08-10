@@ -32,7 +32,7 @@ class StorgeConttroller extends Controller
 
     public function test(){
         $fileNum = Storage::disk('vote')->files();
-        echo count($fileNum);
+        return count($fileNum);
     }
 
 

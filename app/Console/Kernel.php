@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\wechatSchedule::class,
     ];
 
     /**
@@ -24,15 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        //schedule to send email
-        $schedule->call(function () {
-
-
-
-
-        })->everyMinute();
+        $schedule->command('wechatSchedule')
+            ->timezone('Asia/Shanghai')
+            ->everyMinute();
     }
 
     /**
