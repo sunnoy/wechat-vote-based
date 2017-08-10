@@ -46,7 +46,7 @@ class StorgeConttroller extends Controller
 //        }
 //        echo $notice = "嗨 ！ 今天我们水质检测中心一共投" . $num . "张票," . $append;
 
-        $urlcon = "我想看新闻";
+        $urlcon = "我想";
 //                    //发送到图灵机器人接口
 //
 //                    $url = "http://www.tuling123.com/openapi/api?key=f7b6e44c70ea46f3972d95e7bd044789&info=" . $content;
@@ -77,7 +77,7 @@ class StorgeConttroller extends Controller
             $list = $content->list;
         }
 
-        $tuling = '';
+        $tuling = $text;
         if (!empty($urll)) {
 
             $tuling = $text . $urll;
@@ -92,7 +92,8 @@ class StorgeConttroller extends Controller
 
         }
 
-        echo $tuling;
+        echo $tuling ;
+
         //return new Text(['content' => $tuling]);
 
     }

@@ -80,7 +80,7 @@ class WechatController extends Controller
                     if (!empty($content->list)) {
                         $list = $content->list;
                     }
-                    $tuling = '';
+                    $tuling = $text;
                     if (!empty($urll)) {
 
                         $tuling = $text . $urll;
@@ -96,7 +96,7 @@ class WechatController extends Controller
                     }
 
 
-                    return new Text(['content' => "dd"]);
+                    return new Text(['content' => $tuling]);
 
 
                     break;
