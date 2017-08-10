@@ -80,7 +80,7 @@ class WechatController extends Controller
                     break;
                 case 'voice':
                     $text1 = new Text(['content' => '您好！overtrue。']);
-                    $text2 = new Text(['content' => '您好！overtrue。']);
+                    $text2 = "dong";
                     $text3 = new Text(['content' => '您好！overtrue。']);
 
 
