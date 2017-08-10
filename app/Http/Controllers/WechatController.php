@@ -84,7 +84,7 @@ class WechatController extends Controller
                     $text3 = new Text(['content' => '您好！overtrue。']);
 
 
-                    return $text1.$text2;
+                    return $text1;
                     break;
                 case 'video':
                     return '收到视频消息';
@@ -104,7 +104,7 @@ class WechatController extends Controller
         });
 
 
-        return $wechat->server->serve();
+        //return $wechat->server->serve();
     }
 
     public function saveImage($url)
