@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use EasyWeChat\Message\Text;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+
 use Illuminate\Support\Facades\Storage;
 
 
@@ -38,16 +41,25 @@ class WechatController extends Controller
                     break;
 
                 case 'text':
-                    $content = urlencode($message->Content);
-                    //发送到图灵机器人接口
-
-                    $url = "http://www.tuling123.com/openapi/api?key=f7b6e44c70ea46f3972d95e7bd044789&info=" . $content;
-                    //获取图灵机器人返回的内容
-                    $content = file_get_contents($url);
-                    //对内容json解码
+                    $urlcon = urlencode($message->Content);
+//                    //发送到图灵机器人接口
+//
+//                    $url = "http://www.tuling123.com/openapi/api?key=f7b6e44c70ea46f3972d95e7bd044789&info=" . $content;
+//                    //获取图灵机器人返回的内容
+//                    $content = file_get_contents($url);
+//                    //对内容json解码
+//                    $content = json_decode($content);
+//                    //把内容发给用户
+                    $client = new Client(); //GuzzleHttp\Client
+                    $result = $client->post('http://www.tuling123.com/openapi/api', [
+                        'form_params' => [
+                            'key' => 'f7b6e44c70ea46f3972d95e7bd044789',
+                            'info' => $urlcon,
+                            'userid' => $message->FromUserName,
+                        ]
+                    ]);
+                    $content = file_get_contents($result);
                     $content = json_decode($content);
-                    //把内容发给用户
-
 
 
                     return new Text(['content' => $content->text]);
@@ -104,7 +116,7 @@ class WechatController extends Controller
         });
 
 
-        //return $wechat->server->serve();
+        return $wechat->server->serve();
     }
 
     public function saveImage($url)
