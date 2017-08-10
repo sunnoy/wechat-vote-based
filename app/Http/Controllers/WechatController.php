@@ -51,7 +51,7 @@ class WechatController extends Controller
 //                    $content = json_decode($content);
 //                    //把内容发给用户
                     $client = new Client(); //GuzzleHttp\Client
-                    $result = $client->request('POST','http://www.tuling123.com/openapi/api', [
+                    $result = $client->request('POST', 'http://www.tuling123.com/openapi/api', [
                         'form_params' => [
                             'key' => 'f7b6e44c70ea46f3972d95e7bd044789',
                             'info' => $urlcon,
@@ -62,9 +62,20 @@ class WechatController extends Controller
 
                     $content = json_decode($content);
 
+                    $urll = new Text(['content' => $content->url]);
+                    $text = new Text(['content' => $content->text]);
+                    $list = new Text(['content' => $content->list]);
 
-                    return new Text(['content' => $content->text]);
-                    //return "copy text message";
+                    if (!empty($urll)) {
+
+                        return $text . $urll;
+
+                    } elseif (!empty($list)) {
+                        return $text . $list;
+                    } else {
+                        return $text;
+                    }
+
 
                     break;
 
@@ -92,12 +103,12 @@ class WechatController extends Controller
 
                     break;
                 case 'voice':
-                    $text1 = new Text(['content' => '您好！overtrue。']);
-                    $text2 = "dong";
+                    $text1 = new Text(['content' => '']);
+
                     $text3 = new Text(['content' => '您好！overtrue。']);
 
 
-                    return $text1;
+                    return $text1 . $text3;
                     break;
                 case 'video':
                     return '收到视频消息';
