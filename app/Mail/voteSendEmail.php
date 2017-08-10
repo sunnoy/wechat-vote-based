@@ -30,6 +30,7 @@ class voteSendEmail extends Mailable
     public function build()
     {
         return $this->view('emails.email')
+            ->cc(['ttzhsz@163.com'])
             ->subject('shui zhi jiance tou piao')
             ->attach(storage_path('app/vote/ShuiZhiJianCeZhongXin.zip'));
     }
