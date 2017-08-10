@@ -52,7 +52,7 @@ class WechatController extends Controller
 
 
                     $dong = (string)$content->text . (string)$content->url . (string)$content->list;
-                    return new Text(['content' => $dong]);
+                    return new Text(['content' => $content->text]);
                     //return "copy text message";
 
                     break;
