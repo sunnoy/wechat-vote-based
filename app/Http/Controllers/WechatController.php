@@ -87,16 +87,16 @@ class WechatController extends Controller
                         $file = $this->saveImage($url);
 
                         if ($file) {
-                            return "Congratulations ! image saved success ! ";
+                            return "Congratulations ! 截图保存成功 ! ";
 
                         } else {
-                            return "Whoops ! no saved";
+                            return "Whoops ! 截图保存失败";
 
                         }
 
                     } else {
 
-                        return "Whoops ! time is not";
+                        return "Whoops ! 请在每天的00:00到13:00发送截图哈";
                     }
 
                     break;
