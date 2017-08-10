@@ -32,12 +32,14 @@ class WechatController extends Controller
                 case 'event':
                     switch ($message->Event) {
                         case 'subscribe':
-                            return "0.HI!欢迎关注德阳监测站投票平台!!\n\n
+                            return "HI ! 欢迎关注德阳监测站投票平台\n\n
+投票须知：
 1.投票时间段为每天的00:00到13:00\n
 2.直接向公众号发送投票截图即可投票,保存成功会有消息回复。\n\n
-3.请不要发送非投票截图！！！\n
-4.请不要发送非投票截图！！！\n
-5.请不要发送非投票截图！！！\n";
+重要：
+1.请不要发送非投票截图！！！\n
+2.请不要发送非投票截图！！！\n
+3.请不要发送非投票截图！！！\n";
                             break;
 
                         default:
