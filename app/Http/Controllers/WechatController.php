@@ -6,7 +6,6 @@ use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
 
 
-
 class WechatController extends Controller
 {
 
@@ -60,7 +59,6 @@ class WechatController extends Controller
                     date_default_timezone_set("Asia/Shanghai");
 
 
-
                     if (date('H') >= 00 && date('H') <= 13) {
 
                         $file = $this->saveImage($url);
@@ -80,8 +78,11 @@ class WechatController extends Controller
 
                     break;
                 case 'voice':
+                    $a1 = new Text("huanying1");
+                    $a2 = new Text("huanying2");
+                    $a3 = new Text("huanying3");
 
-                    return "copy voice message!";
+                    return [$a1, $a2, $a3];
                     break;
                 case 'video':
                     return '收到视频消息';
