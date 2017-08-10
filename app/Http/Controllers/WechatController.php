@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use EasyWeChat\Message\Text;
 use Illuminate\Support\Facades\Storage;
 
-date_default_timezone_set("Asia/Shanghai");
 
 
 class WechatController extends Controller
@@ -58,6 +57,8 @@ class WechatController extends Controller
 
                 case 'image':
                     $url = $message->PicUrl;
+                    date_default_timezone_set("Asia/Shanghai");
+
 
 
                     if (date('H') >= 00 && date('H') <= 13) {
