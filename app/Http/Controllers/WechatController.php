@@ -144,7 +144,9 @@ Tips:
                     if (date("Hi") > 1305) {
                         $num = $num - 1;
                     }
-                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" .$append;
+
+                    $voteUrl ="http://activity.yktour.com.cn/?from=groupmessage#/WildChain?channels=0";
+                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" .$append."<a href='http://activity.yktour.com.cn/?from=groupmessage#/WildChain?channels=0'>点我马上投票</a>";
 
 
                     return new Text(['content' => $notice]);
