@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\voteSendEmail;
+use GuzzleHttp\Client;
+
 
 
 
@@ -30,24 +32,21 @@ class StorgeConttroller extends Controller
     }
 
     public function test(){
-        date_default_timezone_set("Asia/Shanghai");
+        $urlcon="德阳";
+        $client = new Client(); //GuzzleHttp\Client
+        $result = $client->request('POST','http://www.tuling123.com/openapi/api', [
+            'form_params' => [
+                'key' => 'f7b6e44c70ea46f3972d95e7bd044789',
+                'info' => $urlcon,
+                'userid' => '123',
+            ]
+        ]);
+       $content = $result->getBody()->getContents();
+        $content = json_decode($content);
 
-        if (intval(date('H')) <= 13) {
+        //var_dump($result->getBody()->getContents());
+        return $content->text;
 
-
-            if ("3") {
-                echo intval(date("H"));
-                return "Congratulations ! image saved success ! ";
-
-
-            }
-
-        } else {
-            echo intval(date("H"));
-
-
-            return "Whoops ! time is not";
-        }
     }
 
 

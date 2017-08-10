@@ -41,7 +41,7 @@ class WechatController extends Controller
                     break;
 
                 case 'text':
-                    $urlcon = urlencode($message->Content);
+                    $urlcon = $message->Content;
 //                    //发送到图灵机器人接口
 //
 //                    $url = "http://www.tuling123.com/openapi/api?key=f7b6e44c70ea46f3972d95e7bd044789&info=" . $content;
@@ -51,14 +51,15 @@ class WechatController extends Controller
 //                    $content = json_decode($content);
 //                    //把内容发给用户
                     $client = new Client(); //GuzzleHttp\Client
-                    $result = $client->post('http://www.tuling123.com/openapi/api', [
+                    $result = $client->request('POST','http://www.tuling123.com/openapi/api', [
                         'form_params' => [
                             'key' => 'f7b6e44c70ea46f3972d95e7bd044789',
                             'info' => $urlcon,
                             'userid' => $message->FromUserName,
                         ]
                     ]);
-                    $content = file_get_contents($result);
+                    $content = $result->getBody()->getContents();
+
                     $content = json_decode($content);
 
 
