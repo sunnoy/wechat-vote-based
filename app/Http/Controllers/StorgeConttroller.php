@@ -14,7 +14,7 @@ class StorgeConttroller extends Controller
     {
 
         //service cron reload
-        exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*");
+        exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*jpg");
     }
 
     public function sendEmail()
@@ -26,7 +26,7 @@ class StorgeConttroller extends Controller
 
     public function deleteFile()
     {
-        exec("cd /var/www/we/storage/app/vote && rm -rf *");
+        exec("cd /var/www/we/storage/app/vote && rm -rf *jpg");
 
     }
 
