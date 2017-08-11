@@ -156,7 +156,7 @@ Tips:
                     if (date('Hi') >= 1245 && date('Hi') <= 2400) {
                         $num = $num - 1;
                         $uurl = '明天继续努力喔～';
-                        $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . $append . $uurl;
+                        $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . $uurl;
 
 
                     }
