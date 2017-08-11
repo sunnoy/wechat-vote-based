@@ -128,6 +128,8 @@ Tips:
                     break;
                 case 'voice':
 
+                    date_default_timezone_set("Asia/Shanghai");
+
                     $fileNum = Storage::disk('vote')->files();
                     $num = count($fileNum);
                     $append = '';
