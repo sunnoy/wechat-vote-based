@@ -34,7 +34,7 @@ class WechatController extends Controller
                         case 'subscribe':
                             return "HI ! 欢迎关注德阳监测站投票平台\n\n
 投票须知：
-1.投票时间段为每天的00:00到13:00\n
+1.投票时间段为每天的00:00到12:45\n
 2.直接向公众号发送投票截图即可投票,保存成功会有消息回复。\n\n
 重要：
 1.请不要发送非投票截图！！！\n
@@ -108,7 +108,7 @@ Tips:
                     date_default_timezone_set("Asia/Shanghai");
 
 
-                    if (date('H') >= 00 && date('H') <= 13) {
+                    if (date('Hi') >= 0000 && date('Hi') <= 1245) {
 
                         $file = $this->saveImage($url);
 
@@ -122,14 +122,14 @@ Tips:
 
                     } else {
 //
-                        return "Whoops ! 请在每天的00:00到13:00发送截图哈";
+                        return "Whoops ! 请在每天的00:00到12:45发送截图哈";
                     }
 
                     break;
                 case 'voice':
 
                     $fileNum = Storage::disk('vote')->files();
-                    $num = count($fileNum) - 1;
+                    $num = count($fileNum);
                     $append = '';
                     if ($num >= 1 && $num <= 100) {
                         $append = ",没有投票的要抓紧喔,";
@@ -138,6 +138,10 @@ Tips:
 
                     } elseif ($num >= 130) {
                         $append = ",好给力！";
+                    }
+                    if (date('Hi') >= 1245 && date('Hi') <= 2400) {
+                        $num = $num - 1;
+
                     }
 
 

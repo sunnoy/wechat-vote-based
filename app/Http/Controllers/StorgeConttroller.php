@@ -14,7 +14,7 @@ class StorgeConttroller extends Controller
     {
 
         //service cron reload
-        exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*jpg");
+        exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*");
     }
 
     public function sendEmail()
@@ -26,7 +26,7 @@ class StorgeConttroller extends Controller
 
     public function deleteFile()
     {
-        exec("cd /var/www/we/storage/app/vote && rm -rf *jpg");
+        exec("cd /var/www/we/storage/app/vote && rm -rf *");
 
     }
 
@@ -54,47 +54,54 @@ class StorgeConttroller extends Controller
 //                    $content = file_get_contents($url);
 //                    //对内容json解码
 //                    $content = json_decode($content);
-//                    //把内容发给用户
-        $client = new Client(); //GuzzleHttp\Client
-        $result = $client->request('POST', 'http://www.tuling123.com/openapi/api', [
-            'form_params' => [
-                'key' => 'f7b6e44c70ea46f3972d95e7bd044789',
-                'info' => $urlcon,
-                'userid' => "123",
-            ]
-        ]);
-        $content = $result->getBody()->getContents();
+////                    //把内容发给用户
+//        $client = new Client(); //GuzzleHttp\Client
+//        $result = $client->request('POST', 'http://www.tuling123.com/openapi/api', [
+//            'form_params' => [
+//                'key' => 'f7b6e44c70ea46f3972d95e7bd044789',
+//                'info' => $urlcon,
+//                'userid' => "123",
+//            ]
+//        ]);
+//        $content = $result->getBody()->getContents();
+//
+//        $content = json_decode($content);
+//
+//        $text = $content->text;
+//        if (!empty($content->url)) {
+//
+//            $urll = $content->url;
+//        };
+//
+//        if (!empty($content->list)) {
+//            $list = $content->list;
+//        }
+//
+//        $tuling = $text;
+//        if (!empty($urll)) {
+//
+//            $tuling = $text . $urll;
+//
+//        } elseif (!empty($list)) {
+//
+//            $tuling = $text . $list;
+//
+//        } elseif (!empty($urll) && !empty($list)) {
+//
+//            $tuling = $text . $urll . $list;
+//
+//        }
+//
+//        echo $tuling ;
+        date_default_timezone_set("Asia/Shanghai");
 
-        $content = json_decode($content);
+        if (date("Hi")>=0000 && intval(date("Hi"))<=1033){
+            echo "toupiao shi jian";
 
-        $text = $content->text;
-        if (!empty($content->url)) {
-
-            $urll = $content->url;
-        };
-
-        if (!empty($content->list)) {
-            $list = $content->list;
+        }else{
+            echo "fei tou piao shi jian";
         }
-
-        $tuling = $text;
-        if (!empty($urll)) {
-
-            $tuling = $text . $urll;
-
-        } elseif (!empty($list)) {
-
-            $tuling = $text . $list;
-
-        } elseif (!empty($urll) && !empty($list)) {
-
-            $tuling = $text . $urll . $list;
-
-        }
-
-        echo $tuling ;
-
-        //return new Text(['content' => $tuling]);
+        //return date("Hi");
 
     }
 
