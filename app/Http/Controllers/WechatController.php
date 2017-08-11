@@ -131,22 +131,33 @@ Tips:
                     $fileNum = Storage::disk('vote')->files();
                     $num = count($fileNum);
                     $append = '';
-                    if ($num >= 1 && $num <= 100) {
-                        $append = ",没有投票的要抓紧喔,";
-                    } elseif ($num > 100 && $num < 130) {
-                        $append = ",大家继续加油喔～,";
+                    $uurl = '';
 
-                    } elseif ($num >= 130) {
-                        $append = ",好给力！";
+                    if (date('Hi') >= 0000 && date('Hi') <= 1245) {
+
+                        $uurl = "<a href='http://activity.yktour.com.cn/?from=groupmessage#/WildChain?channels=0'>点我马上投票</a>";
+
+
+                        if ($num >= 1 && $num <= 100) {
+                            $append = ",没有投票的要抓紧喔,";
+                        } elseif ($num > 100 && $num < 130) {
+                            $append = ",大家继续加油喔～,";
+
+                        } elseif ($num >= 130) {
+                            $append = ",好给力！";
+                        }
+
                     }
+
+
                     if (date('Hi') >= 1245 && date('Hi') <= 2400) {
                         $num = $num - 1;
+                        $uurl = '明天继续努力喔～';
 
                     }
 
 
-                    $voteUrl = "http://activity.yktour.com.cn/?from=groupmessage#/WildChain?channels=0";
-                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . $append . "<a href='http://activity.yktour.com.cn/?from=groupmessage#/WildChain?channels=0'>点我马上投票</a>";
+                    $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . $append . $uurl;
 
 
                     return new Text(['content' => $notice]);
