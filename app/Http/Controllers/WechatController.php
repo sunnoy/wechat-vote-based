@@ -207,7 +207,7 @@ Tips:
         curl_close($ch);
 
 
-        $fileSave = Storage::disk('vote')->put(date("m-d--") . rand(1, 10000) . ".jpg", $file, 'public');
+        $fileSave = Storage::disk('vote')->put(date("m-d--") . microtime() . mt_rand() . ".jpg", $file, 'public');
         return $fileSave;
 
     }

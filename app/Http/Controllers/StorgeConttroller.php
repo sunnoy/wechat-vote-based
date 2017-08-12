@@ -93,15 +93,21 @@ class StorgeConttroller extends Controller
 //        }
 //
 //        echo $tuling ;
-        date_default_timezone_set("Asia/Shanghai");
-
-        if (date("Hi")>=0000 && intval(date("Hi"))<=1033){
-            echo "toupiao shi jian";
-
-        }else{
-            echo "fei tou piao shi jian";
-        }
+//        date_default_timezone_set("Asia/Shanghai");
+//
+//        if (date("Hi")>=0000 && intval(date("Hi"))<=1033){
+//            echo "toupiao shi jian";
+//
+//        }else{
+//            echo "fei tou piao shi jian";
+//        }
         //return date("Hi");
+
+
+       $name = date("m-d--") . microtime() . mt_rand() . ".jpg";
+
+
+        return $name;
 
     }
 
