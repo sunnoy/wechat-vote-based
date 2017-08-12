@@ -104,7 +104,7 @@ class StorgeConttroller extends Controller
         //return date("Hi");
 
 
-       $name = date("m-d--") . microtime() . mt_rand() . ".jpg";
+       $name = date("m-d--") . microtime(). ".jpg";
 
 
         return $name;

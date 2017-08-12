@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use EasyWeChat\Message\Text;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 
 use Illuminate\Support\Facades\Storage;
@@ -32,7 +31,7 @@ class WechatController extends Controller
                 case 'event':
                     switch ($message->Event) {
                         case 'subscribe':
-                            return "HI ! 欢迎关注德阳监测站投票平台\n\n
+                            return "HI ! 欢迎关注德阳市供排水水质监测站投票平台\n\n
 投票须知：
 1.投票时间段为每天的00:00到12:45\n
 2.直接向公众号发送投票截图即可投票,保存成功会有消息回复。\n\n
@@ -108,8 +107,8 @@ Tips:
                     date_default_timezone_set("Asia/Shanghai");
 
 
-                    //if (date('Hi') >= 0000 && date('Hi') <= 1245) {
-                    if (date('Hi') >= 0000 && date('Hi') <= 2245) {
+                    if (date('Hi') >= 0000 && date('Hi') <= 1245) {
+                    //if (date('Hi') >= 0000 && date('Hi') <= 2245) {
 
                         $file = $this->saveImage($url);
 
@@ -151,7 +150,7 @@ Tips:
                             $append = ",好给力！";
                         }
 
-                        $notice = "嗨 ！ 当前我们水质监测中心共投" . $num . "张票" . $append . $uurl;
+                        $notice = "嗨 ！ 当前我们水质监测站共投" . $num . "张票" . $append . $uurl;
 
                     }
 
@@ -159,9 +158,7 @@ Tips:
                     if (date('Hi') >= 1245 && date('Hi') <= 2400) {
                         $num = $num - 1;
                         $uurl = ',明天继续努力喔～';
-                        $notice = "嗨 ！ 今天我们水质监测中心共投" . $num . "张票" . $uurl;
-
-
+                        $notice = "嗨 ！ 今天我们水质监测站共投" . $num . "张票" . $uurl;
                     }
 
 
