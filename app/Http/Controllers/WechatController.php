@@ -108,7 +108,8 @@ Tips:
                     date_default_timezone_set("Asia/Shanghai");
 
 
-                    if (date('Hi') >= 0000 && date('Hi') <= 1245) {
+                    //if (date('Hi') >= 0000 && date('Hi') <= 1245) {
+                    if (date('Hi') >= 0000 && date('Hi') <= 2245) {
 
                         $file = $this->saveImage($url);
 
