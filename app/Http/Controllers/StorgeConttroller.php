@@ -14,13 +14,13 @@ class StorgeConttroller extends Controller
     {
 
         //service cron reload
-        exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhongXin.zip ./*");
+        exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhan.zip ./*");
     }
 
     public function sendEmail()
     {
 
-        Mail::to('1476281924@qq.com')->send(new voteSendEmail());
+        Mail::to('532507593@qq.com')->send(new voteSendEmail());
 
     }
 
