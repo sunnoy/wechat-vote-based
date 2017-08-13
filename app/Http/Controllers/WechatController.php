@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use EasyWeChat\Message\Text;
 use GuzzleHttp\Client;
+use EasyWeChat\Support\Log;
+
 
 
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +22,7 @@ class WechatController extends Controller
      */
     public function serve()
     {
+        Log::info('request arrived.');
 
 
         $wechat = app('wechat');
@@ -185,6 +188,8 @@ Tips:
             }
 
         });
+
+        Log::info('return response.');
 
 
         return $wechat->server->serve();
