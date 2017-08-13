@@ -20,7 +20,8 @@ class StorgeConttroller extends Controller
     public function sendEmail()
     {
 
-        Mail::to('532507593@qq.com')->send(new voteSendEmail());
+        //Mail::to('532507593@qq.com')->send(new voteSendEmail());
+        Mail::to('ttzhsz@163.com')->send(new voteSendEmail());
 
     }
 
