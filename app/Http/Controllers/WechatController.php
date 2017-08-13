@@ -7,7 +7,6 @@ use GuzzleHttp\Client;
 use EasyWeChat\Support\Log;
 
 
-
 use Illuminate\Support\Facades\Storage;
 
 
@@ -46,6 +45,76 @@ Tips:
 1.直接回复文字即可与图灵机器人聊天喔～～(一定程度上可以替代度娘，帮您解疑答惑)
 2.回复任意长度语音获取当天实时投票总数";
                             break;
+
+                        case 'VOTE':
+
+                            $url = $message->PicUrl;
+                            date_default_timezone_set("Asia/Shanghai");
+
+
+                            if (date('Hi') >= 0000 && date('Hi') <= 1245) {
+                                //if (date('Hi') >= 0000 && date('Hi') <= 2245) {
+
+                                $file = $this->saveImage($url);
+
+                                if ($file) {
+                                    return "Congratulations ! 截图保存成功 ! ";
+
+                                } else {
+                                    return "Whoops ! 截图保存失败";
+
+                                }
+
+                            } else {
+//
+                                return "Whoops ! 请在每天的00:00到12:45发送截图哈";
+                            }
+
+                            break;
+
+
+                        case 'NUM':
+
+
+                            date_default_timezone_set("Asia/Shanghai");
+
+                            $fileNum = Storage::disk('vote')->files();
+                            $num = count($fileNum);
+                            $append = '';
+                            $uurl = '';
+                            $notice = '';
+
+                            if (date('Hi') >= 0000 && date('Hi') <= 1245) {
+
+                                $uurl = "<a href='http://activity.yktour.com.cn/?from=groupmessage#/WildChain?channels=0'>点我马上投票</a>";
+
+
+                                if ($num >= 1 && $num <= 100) {
+                                    $append = ",没有投票的要抓紧喔,";
+                                } elseif ($num > 100 && $num < 130) {
+                                    $append = ",大家继续加油喔～,";
+
+                                } elseif ($num >= 130) {
+                                    $append = ",好给力！";
+                                }
+
+                                $notice = "嗨 ！ 当前我们水质监测站共投" . $num . "张票" . $append . $uurl;
+
+                            }
+
+
+                            if (date('Hi') >= 1245 && date('Hi') <= 2400) {
+                                $num = $num - 1;
+                                $uurl = ',明天继续努力喔～';
+                                $notice = "嗨 ！ 今天我们水质监测站共投" . $num . "张票" . $uurl;
+                            }
+
+
+                            return new Text(['content' => $notice]);
+
+
+                            break;
+
 
                         default:
                             // code...
@@ -111,7 +180,7 @@ Tips:
 
 
                     if (date('Hi') >= 0000 && date('Hi') <= 1245) {
-                    //if (date('Hi') >= 0000 && date('Hi') <= 2245) {
+                        //if (date('Hi') >= 0000 && date('Hi') <= 2245) {
 
                         $file = $this->saveImage($url);
 
@@ -137,7 +206,7 @@ Tips:
                     $num = count($fileNum);
                     $append = '';
                     $uurl = '';
-                    $notice= '';
+                    $notice = '';
 
                     if (date('Hi') >= 0000 && date('Hi') <= 1245) {
 
@@ -163,9 +232,6 @@ Tips:
                         $uurl = ',明天继续努力喔～';
                         $notice = "嗨 ！ 今天我们水质监测站共投" . $num . "张票" . $uurl;
                     }
-
-
-
 
 
                     return new Text(['content' => $notice]);

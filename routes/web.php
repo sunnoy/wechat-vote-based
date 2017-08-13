@@ -19,4 +19,6 @@ Route::get('/zipFile','StorgeConttroller@SaveFile');
 Route::get('/sendEmail','StorgeConttroller@sendEmail');
 Route::get('/deleteFile','StorgeConttroller@deleteFile');
 Route::get('/t','StorgeConttroller@test');
+Route::get('/menu','addWeChatController@addMenu');
+
 
