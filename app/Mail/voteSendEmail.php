@@ -5,10 +5,13 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 
 class voteSendEmail extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $num;
 
 
     /**
@@ -19,6 +22,8 @@ class voteSendEmail extends Mailable
 
     public function __construct()
     {
+        $fileNum = Storage::disk('vote')->files();
+        $this->num = count($fileNum);
 
     }
 
