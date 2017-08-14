@@ -40,7 +40,7 @@ class SendEmails extends Command
     public function handle()
     {
         //$this->info('send emails');
-        Mail::to('ttzhsz@163.com')->send(new voteSendEmail());
         //Mail::to('ttzhsz@163.com')->send(new voteSendEmail());
+        Mail::to('532507593@qq.com')->send(new voteSendEmail());
     }
 }
