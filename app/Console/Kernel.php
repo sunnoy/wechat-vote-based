@@ -13,7 +13,12 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+
+        Commands\zipFiles::class,
+
         Commands\SendEmails::class,
+
+        Commands\deleteFiles::class,
 
     ];
 
@@ -25,9 +30,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        //zip files
+        $schedule->command('zipFiles')
+            ->timezone('Asia/Shanghai')
+            //->dailyAt('12:45');
+            ->dailyAt('15:40');
+
+        //send emails
         $schedule->command('sendEmails')
             ->timezone('Asia/Shanghai')
-            ->everyFiveMinutes();
+            //->dailyAt('13:30');
+            ->dailyAt('15:42');
+
+        //delete files
+        $schedule->command('deleteFiles')
+            ->timezone('Asia/Shanghai')
+            //->dailyAt('23:55');
+            ->dailyAt('15:45');
     }
 
     /**
