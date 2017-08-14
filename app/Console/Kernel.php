@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('sendEmails')
             ->timezone('Asia/Shanghai')
-            ->everyMinute();
+            ->everyFiveMinutes();
     }
 
     /**
