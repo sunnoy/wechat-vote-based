@@ -10,26 +10,6 @@ use Illuminate\Support\Facades\Storage;
 
 class StorgeConttroller extends Controller
 {
-    public function SaveFile()
-    {
-
-        //service cron reload
-        //exec("cd /var/www/we/storage/app/vote && zip -r ShuiZhiJianCeZhan.zip ./*");
-    }
-
-    public function sendEmail()
-    {
-
-        //Mail::to('532507593@qq.com')->send(new voteSendEmail());
-        //Mail::to('ttzhsz@163.com')->send(new voteSendEmail());
-
-    }
-
-    public function deleteFile()
-    {
-        //exec("cd /var/www/we/storage/app/vote && rm -rf *");
-
-    }
 
     public function test()
     {
