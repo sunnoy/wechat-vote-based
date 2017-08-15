@@ -36,9 +36,9 @@ class Kernel extends ConsoleKernel
             ->dailyAt('12:45');
 
         //send emails
-        $schedule->command('sendEmails')
-            ->timezone('Asia/Shanghai')
-            ->dailyAt('13:30');
+        //$schedule->command('sendEmails')
+          //  ->timezone('Asia/Shanghai')
+            //->dailyAt('13:30');
 
         //delete files
         $schedule->command('deleteFiles')
