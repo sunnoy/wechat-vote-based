@@ -174,7 +174,9 @@ Tips:
                     return '收到视频消息';
                     break;
                 case 'location':
-                    return '收到坐标消息';
+
+                    return $message->FromUserName;
+                    //return '收到坐标消息';
                     break;
                 case 'link':
                     return '收到链接消息';
