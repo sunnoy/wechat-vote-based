@@ -108,7 +108,6 @@ Tips:
 
                 case 'image':
                     $url = $message->PicUrl;
-                    date_default_timezone_set("Asia/Shanghai");
 
 
                     if (date('Hi') >= 0000 && date('Hi') <= 1245) {
@@ -132,7 +131,6 @@ Tips:
                     break;
                 case 'voice':
 
-                    date_default_timezone_set("Asia/Shanghai");
 
                     $fileNum = Storage::disk('vote')->files();
                     $num = count($fileNum);

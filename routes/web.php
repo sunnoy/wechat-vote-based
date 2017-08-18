@@ -17,5 +17,6 @@ Route::get('/', function () {
 Route::any('/wechat', 'WechatController@serve')->name('wechat');
 
 Route::get('/t','StorgeConttroller@test');
+Route::get('/date','TimeBucketController@TimeBucker');
 
 
