@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use EasyWeChat\Foundation\Application;
 use EasyWeChat\Message\Text;
 use GuzzleHttp\Client;
 use EasyWeChat\Support\Log;
@@ -19,12 +20,13 @@ class WechatController extends Controller
      *
      * @return string
      */
-    public function serve()
+    public function serve(Application $wechat)
     {
         Log::info('request arrived.');
 
 
-        $wechat = app('wechat');
+        //$wechat = app('wechat');
+
 
         $wechat->server->setMessageHandler(function ($message) {
 

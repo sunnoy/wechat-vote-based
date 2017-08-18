@@ -9,7 +9,8 @@ class TimeBucketController extends Controller
 
     public function TimeBucker()
     {
-        return date('Hi');
+        //return date('Hi');
+        $we=app('hh',['jj'=>'jj']);
 
 
     }
